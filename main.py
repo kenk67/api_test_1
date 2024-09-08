@@ -6,5 +6,7 @@ app = FastAPI()
 async def receive_input(data: str):
     if data == "Hi":
         return {"message": "Hello"}
+    elif data == "What":
+        return {"message": "What is it ?"}
     else:
         return {"message": "No input"}
