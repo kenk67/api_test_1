@@ -9,4 +9,4 @@ async def receive_input(data: str):
     elif data == "What":
         return {"message": "What is it ?"}
     else:
-        return {"message": "No input"}
+        return {"message": "Noo input"}
