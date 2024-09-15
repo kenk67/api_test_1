@@ -11,7 +11,6 @@ async def receive_input(data: str):
     else:
         return {"message": "Noo input"}
 
-
 #something else
 #print
 # Remove hosts
