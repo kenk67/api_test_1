@@ -16,3 +16,7 @@ async def receive_input(data: str):
 # Remove hosts
 # Removed hosts reload
 #testing commandline
+
+@app.get("/testing")
+async def hello():
+    return {"message": "BG3"}
