@@ -14,7 +14,6 @@ async def receive_input(data: str):
 
 #something else
 #print
-
 # Remove hosts
 # Removed hosts reload
 #testing commandline
