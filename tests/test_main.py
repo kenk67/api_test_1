@@ -1,18 +1,23 @@
+import pytest
 from fastapi.testclient import TestClient
 from main import app
 
 client = TestClient(app)
 
-def test_input_hi():
-    response = client.post("/input", json={"data": "Hi"})
-    print(response)
+@pytest.mark.parametrize("input_data, expected_status, expected_response", [
+    ("Hi", 200,  {"message": "Hello"}),  # Assuming no specific response for "Hi" in original code
+    ("What", 200, {"message": "What is it ?"}),
+    ("Something else", 200, {"message": "Noo input"})
+])
+def test_input_responses(input_data, expected_status, expected_response):
+    response = client.post("/input", json={"data": input_data})
 
-def test_input_what():
-    response = client.post("/input", json={"data": "What"})
-    assert response.status_code == 200
-    assert response.json() == {"message": "What is it ?"}
+    # Check status code
+    assert response.status_code == expected_status
 
-def test_input_no_data():
-    response = client.post("/input", json={"data": "Something else"})
-    assert response.status_code == 200
-    assert response.json() == {"message": "Noo input"}
+    # For cases where there's an expected response
+    if expected_response:
+        assert response.json() == expected_response
+
+# Optionally, for debugging purposes, add:
+# pytest --capture=no to display prints in pytest
