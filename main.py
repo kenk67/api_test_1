@@ -10,3 +10,6 @@ async def receive_input(data: str):
         return {"message": "What is it ?"}
     else:
         return {"message": "Noo input"}
+
+
+#something else
