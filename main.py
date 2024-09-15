@@ -16,3 +16,4 @@ async def receive_input(data: str):
 #print
 
 # Remove hosts
+# Removed hosts reload
